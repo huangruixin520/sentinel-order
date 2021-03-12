@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: sentinel-order
+
+#接入sentinel-dashboard
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+
+#暴露端点-sentinel需要使用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+product:
+  host: localhost:9091
+
+# 允许sentinel-dashboard加载feign接口
+feign:
+  sentinel:
+    enabled: true
